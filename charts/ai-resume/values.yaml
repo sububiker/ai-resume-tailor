@@ -1,0 +1,32 @@
+backend:
+  image: ai-resume-backend
+  tag: local
+  pullPolicy: Never
+  port: 8000
+  replicas: 1
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+frontend:
+  image: ai-resume-frontend
+  tag: local
+  pullPolicy: Never
+  port: 3000
+  nodePort: 30081
+  replicas: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
+
+secret:
+  name: anthropic-secret
+  key: api-key
