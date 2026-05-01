@@ -44,6 +44,7 @@ jobs:
         run: |
           kubectl create secret generic anthropic-secret \
             --from-literal=api-key=${{ secrets.ANTHROPIC_API_KEY }} \
+            --save-config \
             --dry-run=client -o yaml | kubectl apply -f -
 
       - name: Deploy with Helm
